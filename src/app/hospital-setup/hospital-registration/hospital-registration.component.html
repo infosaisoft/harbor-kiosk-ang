@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+
+<section>
+  <div class="container">
+      <div class="patientForm">
+          <form [formGroup]="hospitalForm" (ngSubmit)="onSubmit()" novalidate>
+              <div class="form-group">
+                  <label>Hospital Name</label>
+                  <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter Hospital Name">  
+                  <span class="errTxt" *ngIf="hospitalForm.controls['name'].hasError('required')">
+                    Hospital Name is <strong>required</strong>
+                  </span>               
+              </div>
+
+              <div class="form-group">
+                  <label>Hospital Address</label>
+                  <input type="text" id="address" formControlName="address" class="form-control" placeholder="Enter Your Hospital Address">  
+                  <span class="errTxt" *ngIf="hospitalForm.controls['address'].hasError('required')">
+                    Hospital Address is <strong>required</strong>
+                  </span>                 
+              </div>
+              
+              <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="text" id="phNumber" formControlName="phNumber" class="form-control" placeholder="Enter Your Hospital Phone Number">  
+                  <span class="errTxt" *ngIf="hospitalForm.controls['phNumber'].hasError('required')">
+                    Phone Number is <strong>required</strong>
+                  </span>                 
+              </div>
+            
+              <div class="form-group">
+                  <label>Hospital Logo</label>
+                  <input type="text" id="hospitalLogo" formControlName="hospitalLogo" class="form-control" placeholder="Select Hospital Logo"> 
+                  <span class="errTxt" *ngIf="hospitalForm.controls['hospitalLogo'].hasError('required')">
+                    Hospital Logo is <strong>required</strong>
+                  </span>                
+              </div>
+              
+              <div class="form-group footerBtn">
+                <button type="submit" [disabled]="!hospitalForm.valid" class="btn btn-primary">Register Hospital</button>               
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
